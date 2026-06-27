@@ -13,7 +13,7 @@ function convertToObject(sourceString) {
     .reduce((stylesObject, currentLine) => {
       const [key, value] = currentLine.split(':');
 
-      stylesObject[key.trim()] = value.trim();
+      stylesObject[key.trim()] = value;
 
       return stylesObject;
     }, {});
