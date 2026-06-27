@@ -11,9 +11,13 @@ function convertToObject(sourceString) {
     .map((codeCss) => codeCss.trim())
     .filter((trimCodeCss) => trimCodeCss.includes(':'))
     .reduce((stylesObject, currentLine) => {
-      const [key, value] = currentLine.split(':');
+      const colonIndex = currentLine.indexOf(':');
 
-      stylesObject[key.trim()] = value;
+      const key = currentLine.substring(0, colonIndex).trim();
+
+      const value = currentLine.substring(colonIndex + 1).replace(/^\s+/, '');
+
+      stylesObject[key] = value;
 
       return stylesObject;
     }, {});
