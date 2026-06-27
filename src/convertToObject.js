@@ -10,12 +10,12 @@ function convertToObject(sourceString) {
     .split(';')
     .map((codeCss) => codeCss.trim())
     .filter((trimCodeCss) => trimCodeCss.includes(':'))
-    .reduce((stylesObjeto, atualLine) => {
-      const [chave, valor] = atualLine.split(':');
+    .reduce((stylesObject, currentLine) => {
+      const [key, value] = currentLine.split(':');
 
-      stylesObjeto[chave.trim()] = valor.trim();
+      stylesObject[key.trim()] = value.trim();
 
-      return stylesObjeto;
+      return stylesObject;
     }, {});
 }
 
